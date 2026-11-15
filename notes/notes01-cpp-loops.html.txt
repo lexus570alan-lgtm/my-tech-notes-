@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="C++ for、while、do-while 迴圈完整教學">
+    <title>C++ 迴圈控制結構 | My Knowledge Base</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="../index.html" class="logo">My Knowledge Base.</a>
+        <a href="../index.html" class="nav-link">返回首頁</a>
+    </nav>
+
+    <main class="container">
+
+        <article class="article">
+
+            <header class="article-header">
+                <span class="note-number">NOTE 01 / C++</span>
+                <h1>C++ 迴圈控制結構</h1>
+                <p>學習如何使用迴圈，讓程式重複執行指定的指令。</p>
+            </header>
+
+            <section>
+                <h2>1. 什麼是迴圈？</h2>
+
+                <p>
+                    在程式設計中，迴圈（Loop）是一種控制結構，
+                    可以讓程式在符合特定條件時，重複執行某段程式碼。
+                </p>
+
+                <p>
+                    假設今天需要輸出 1 到 100 的數字，
+                    如果沒有使用迴圈，就必須撰寫大量重複的輸出指令。
+                    使用迴圈則可以大幅減少程式碼，提升程式的可讀性。
+                </p>
+
+                <div class="tip-box">
+                    <strong>核心觀念：</strong>
+                    迴圈主要由初始化、條件判斷、執行內容與更新變數組成。
+                </div>
+            </section>
+
+            <section>
+                <h2>2. for 迴圈</h2>
+
+                <p>
+                    for 迴圈適合用在已經知道大約需要重複執行幾次的情況。
+                    它將初始化、條件判斷與變數更新集中在同一行。
+                </p>
+
+                <h3>基本語法</h3>
+
+                <pre><code>for (初始化; 條件判斷; 更新變數) {
+    // 重複執行的程式碼
+}</code></pre>
+
+                <h3>範例：輸出 1 到 5</h3>
+
+                <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    for (int i = 1; i &lt;= 5; i++) {
+        cout &lt;&lt; i &lt;&lt; endl;
+    }
+
+    return 0;
+}</code></pre>
+
+                <h3>執行結果</h3>
+
+                <pre><code>1
+2
+3
+4
+5</code></pre>
+
+                <p>
+                    執行流程如下：
+                </p>
+
+                <ol>
+                    <li>設定變數 i = 1。</li>
+                    <li>判斷 i 是否小於或等於 5。</li>
+                    <li>如果條件成立，輸出 i。</li>
+                    <li>執行 i++，讓 i 增加 1。</li>
+                    <li>回到條件判斷，直到條件不成立。</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>3. while 迴圈</h2>
+
+                <p>
+                    while 迴圈會先判斷條件是否成立，
+                    只有條件為 true 時才會執行迴圈內的程式碼。
+                </p>
+
+                <h3>基本語法</h3>
+
+                <pre><code>while (條件判斷) {
+    // 重複執行的程式碼
+}</code></pre>
+
+                <h3>範例：輸出 1 到 5</h3>
+
+                <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    int i = 1;
+
+    while (i &lt;= 5) {
+        cout &lt;&lt; i &lt;&lt; endl;
+        i++;
+    }
+
+    return 0;
+}</code></pre>
+
+                <h3>執行結果</h3>
+
+                <pre><code>1
+2
+3
+4
+5</code></pre>
+
+                <div class="warning-box">
+                    <strong>注意：</strong>
+                    如果忘記更新變數 i，可能導致條件一直成立，
+                    造成無窮迴圈（Infinite Loop）。
+                </div>
+            </section>
+
+            <section>
+                <h2>4. do-while 迴圈</h2>
+
+                <p>
+                    do-while 迴圈與 while 迴圈最大的差異在於，
+                    它會先執行一次程式碼，再判斷條件是否成立。
+                </p>
+
+                <h3>基本語法</h3>
+
+                <pre><code>do {
+    // 至少執行一次的程式碼
+} while (條件判斷);</code></pre>
+
+                <h3>範例：輸出 1 到 5</h3>
+
+                <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    int i = 1;
+
+    do {
+        cout &lt;&lt; i &lt;&lt; endl;
+        i++;
+    } while (i &lt;= 5);
+
+    return 0;
+}</code></pre>
+
+                <h3>執行結果</h3>
+
+                <pre><code>1
+2
+3
+4
+5</code></pre>
+
+                <div class="tip-box">
+                    <strong>重要觀念：</strong>
+                    do-while 至少會執行一次，即使一開始的條件不成立也一樣。
+                </div>
+            </section>
+
+            <section>
+                <h2>5. 三種迴圈的比較</h2>
+
+                <p>三種迴圈的主要差異如下：</p>
+
+                <ul>
+                    <li>
+                        <strong>for：</strong>
+                        適合已知執行次數的情況。
+                    </li>
+                    <li>
+                        <strong>while：</strong>
+                        適合依據條件決定是否繼續執行的情況。
+                    </li>
+                    <li>
+                        <strong>do-while：</strong>
+                        適合至少需要執行一次的情況。
+                    </li>
+                </ul>
+
+                <p>
+                    其中，for 與 while 都是先判斷條件再執行，
+                    而 do-while 則是先執行再判斷。
+                </p>
+            </section>
+
+            <section>
+                <h2>6. break 與 continue</h2>
+
+                <h3>break</h3>
+
+                <p>
+                    break 可以直接結束目前所在的迴圈，
+                    即使條件仍然成立，也不會繼續執行。
+                </p>
+
+                <pre><code>for (int i = 1; i &lt;= 5; i++) {
+
+    if (i == 3) {
+        break;
+    }
+
+    cout &lt;&lt; i &lt;&lt; endl;
+}</code></pre>
+
+                <p>執行結果：</p>
+
+                <pre><code>1
+2</code></pre>
+
+                <h3>continue</h3>
+
+                <p>
+                    continue 會跳過本次迴圈剩餘的程式碼，
+                    直接進入下一次迴圈。
+                </p>
+
+                <pre><code>for (int i = 1; i &lt;= 5; i++) {
+
+    if (i == 3) {
+        continue;
+    }
+
+    cout &lt;&lt; i &lt;&lt; endl;
+}</code></pre>
+
+                <p>執行結果：</p>
+
+                <pre><code>1
+2
+4
+5</code></pre>
+            </section>
+
+            <section>
+                <h2>7. 重點整理</h2>
+
+                <ul>
+                    <li>for 迴圈：適合已知重複次數。</li>
+                    <li>while 迴圈：先判斷條件，再決定是否執行。</li>
+                    <li>do-while 迴圈：至少執行一次。</li>
+                    <li>break：直接跳出目前迴圈。</li>
+                    <li>continue：跳過本次迴圈，繼續下一次。</li>
+                    <li>注意更新控制變數，避免產生無窮迴圈。</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>學習建議：</strong>
+                    建議實際修改迴圈的起始值、結束條件與更新方式，
+                    觀察輸出結果的變化，會更容易理解迴圈的執行流程。
+                </div>
+            </section>
+
+            <a href="../index.html" class="back-link">
+                ← 返回筆記首頁
+            </a>
+
+        </article>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 My Knowledge Base. Built with HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
